@@ -1,0 +1,85 @@
+<html>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f6f6f6;
+            font-family: Arial, sans-serif;
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #bbb;
+        }
+    
+        h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+        }
+    
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+    
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px 0 0 0;
+            cursor: pointer;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    
+        label {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+    
+    <form id="login-form">
+        <h2>Login</h2>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <input type="submit" value="Login">
+    </form>
+    
+    <script>
+        const loginForm = document.getElementById("login-form");
+        loginForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const formData = new FormData(loginForm);
+            const formObject = Object.fromEntries(formData.entries());
+            console.log(formObject);
+            // Send form data to server using AJAX or fetch
+        });
+    </script>
+</html>
